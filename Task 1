@@ -1,18 +1,22 @@
 import java.util.Scanner;
+import java.util.Locale;
 public class Main{
 
     public static void main(String[] args) {
+        Locale.setDefault(Locale.ROOT);
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите начальную скорость, м/с");
+        System.out.print("Введите начальную скорость, м/с ");
         double speed = scanner.nextDouble();
         final double g = 9.81;
-        double result = func(speed, g);
-        System.out.println(result + " секунд/ы");
+        double result = calcFallTime(speed, g);
+        System.out.printf("Для начальной скорости speed = %.2f м/c время падения time = %.6f" + "секунд/ы", speed, result);
     }
 
-    public static double func (double speed, double g) {
-        double formula = 2 * speed / g;
-        return formula;
+    public static double calcFallTime (double speed, double g) {
+        double time = 2 * speed / g;
+        return time;
 
     }
 }
+
