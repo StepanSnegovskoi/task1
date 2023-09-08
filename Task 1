@@ -1,11 +1,18 @@
-import  java.util.Scanner;
-public class Main {
+import java.util.Scanner;
+public class Main{
+
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        double TSOF = 10;                // TSOF - The Speed Of Free Fall, скорость свободного падения
-        System.out.println("Введите начальную скорость в метрах в секунду");
-        double SS = s.nextDouble();      // SS - Speed start, начальная скорость
-                           // Время, когда камень упадёт на землю = 2 * SS / TSOF
-        System.out.println("Время, через которое камень упал на землю: " + 2 * SS / TSOF);
-        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите начальную скорость, м/с");
+        double speed = scanner.nextDouble();
+        final double g = 9.81;
+        double result = func(speed, g);
+        System.out.println(result + " секунд/ы");
     }
+
+    public static double func (double speed, double g) {
+        double formula = 2 * speed / g;
+        return formula;
+
+    }
+}
